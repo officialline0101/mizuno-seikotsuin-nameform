@@ -260,11 +260,8 @@
     <div class="container">
         <h1>みずの接骨院<br>お名前フォーム</h1>
         <div class="info-text">入力後【送信】ボタンを押してください。</div>
-        <div class="label">お名前(漢字フルネーム)</div>
+        <div class="label">お名前(フルネーム)</div>
         <textarea id="message" rows="1" placeholder="入力してください"></textarea> <!-- メッセージ入力フィールド -->
-
-        <div class="label">お名前(ふりがな)</div>
-        <textarea id="message2" rows="1" placeholder="入力してください"></textarea> <!-- メッセージ入力フィールド -->
 
         <button class="submit-button" onclick="submitForm()">送信</button> <!-- フォーム送信ボタン -->
     </div>
@@ -313,16 +310,10 @@
                 return;
             }
 
-            // フォームデータのチェック
-            if (!formData.message2) {
-                alert('お名前を入力してください。');
-                return;
-            }
-
             // LINEトークにメッセージを送信
             liff.sendMessages([{
                 type: 'text',
-                text: `≪お名前情報≫\n【お名前（漢字）】\n・${formData.message}\n\n【お名前（ふりがな）】\n・${formData.message2}`
+                text: `【お名前】\n${formData.message}`
             }]).then(() => {
                 /* メッセージ送信成功時の処理 */
                 alert('ご記入ありがとうございます。');
