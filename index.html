@@ -297,16 +297,14 @@
 
         function submitForm() {
             const message = document.getElementById('message').value;
-            const message2 = document.getElementById('message2').value;
 
             const formData = {
                 message,
-                message2,
             };
 
             // フォームデータのチェック
             if (!formData.message) {
-                alert('ご来店日を入力してください。');
+                alert('お名前を入力してください。');
                 return;
             }
 
